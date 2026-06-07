@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azka Razzaq | Cancer Nanomedicine Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #FAFAF8;
+  --surface:  #FFFFFF;
+  --navy:     #0D2137;
+  --navy2:    #163352;
+  --teal:     #0E7C76;
+  --teal-lt:  #E6F4F3;
+  --gold:     #A0712A;
+  --gold-lt:  #FBF4E8;
+  --ink:      #1A2634;
+  --mid:      #4A5A6A;
+  --muted:    #7A8A9A;
+  --rule:     #E2DDD6;
+  --cream:    #F4F1EB;
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --sans:     'Inter', system-ui, sans-serif;
+  --mono:     'JetBrains Mono', monospace;
+  --shadow:   0 2px 20px rgba(13,33,55,.07);
+  --shadow-lg:0 8px 40px rgba(13,33,55,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--navy2);border-radius:2px}
+
+/* ── PROGRESS BAR ── */
+#progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:9999;width:0%;transition:width .1s linear}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 3.5rem;
+  background:rgba(250,250,248,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,box-shadow .3s;
+}
+nav.scrolled{border-color:var(--rule);box-shadow:var(--shadow)}
+.nav-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-monogram{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:.95rem;font-weight:600;
+  letter-spacing:.02em;flex-shrink:0;
+}
+.nav-name{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--navy);letter-spacing:.01em}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.75rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.09em;text-transform:uppercase;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transition:transform .2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{padding:.45rem 1.2rem;background:var(--navy);color:#fff!important;font-size:.72rem!important;font-weight:500!important;letter-spacing:.1em!important;text-transform:uppercase!important;border-radius:2px;transition:background .2s!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--teal)!important;color:#fff!important}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 3.5rem 5rem;
+  position:relative;overflow:hidden;
+}
+.hero-canvas{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 30%, rgba(14,124,118,.055) 0%,transparent 65%),
+    radial-gradient(ellipse 60% 90% at 0% 80%,  rgba(13,33,55,.04)    0%,transparent 60%),
+    radial-gradient(ellipse 40% 40% at 55% 55%, rgba(160,113,42,.03)  0%,transparent 50%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.18;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 30%,transparent 100%);
+}
+.hero-inner{position:relative;z-index:1;max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+.hero-left{}
+.hero-status{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.3rem .9rem .3rem .6rem;
+  border:1px solid rgba(14,124,118,.3);
+  background:rgba(14,124,118,.06);
+  border-radius:100px;
+  margin-bottom:2rem;
+}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-status span{font-family:var(--mono);font-size:.68rem;color:var(--teal);letter-spacing:.08em;text-transform:uppercase}
+h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.2rem);font-weight:700;color:var(--navy);line-height:1.05;letter-spacing:-.01em;margin-bottom:1.2rem}
+h1 .italic{font-style:italic;color:var(--teal)}
+h1 .light{font-weight:400;color:var(--navy2)}
+.hero-sub{font-size:1rem;color:var(--mid);max-width:52ch;margin-bottom:2rem;line-height:1.75;font-weight:300}
+.hero-sub strong{color:var(--ink);font-weight:500}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+.chip{
+  font-family:var(--mono);font-size:.67rem;letter-spacing:.05em;
+  padding:.25rem .75rem;border-radius:2px;border:1px solid;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.chip-t{border-color:var(--teal);color:var(--teal);background:var(--teal-lt)}
+.chip-n{border-color:rgba(13,33,55,.2);color:var(--navy2);background:rgba(13,33,55,.04)}
+.chip-g{border-color:rgba(160,113,42,.3);color:var(--gold);background:var(--gold-lt)}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--sans);font-size:.78rem;font-weight:500;
+  letter-spacing:.07em;text-transform:uppercase;text-decoration:none;
+  padding:.75rem 1.8rem;border-radius:2px;transition:.25s;
+}
+.btn-primary{background:var(--navy);color:#fff;border:1.5px solid var(--navy)}
+.btn-primary:hover{background:var(--teal);border-color:var(--teal)}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-outline:hover{background:var(--cream)}
+.btn svg{width:14px;height:14px;flex-shrink:0}
+
+/* Hero right panel */
+.hero-panel{
+  background:var(--surface);border:1px solid var(--rule);
+  box-shadow:var(--shadow-lg);padding:2rem;min-width:260px;
+  position:relative;
+}
+.hero-panel::before{
+  content:'';position:absolute;top:8px;left:8px;right:-8px;bottom:-8px;
+  border:1px solid var(--rule);z-index:-1;
+}
+.panel-avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--teal) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:2rem;font-weight:600;color:#fff;
+  margin:0 auto 1.4rem;
+}
+.panel-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--navy);text-align:center;margin-bottom:.25rem}
+.panel-title{font-family:var(--mono);font-size:.65rem;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.4rem}
+.panel-divider{height:1px;background:var(--rule);margin-bottom:1.4rem}
+.panel-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:1rem}
+.panel-stat{background:var(--bg);padding:.8rem;text-align:center}
+.panel-stat-num{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--navy);line-height:1;display:block}
+.panel-stat-lbl{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);display:block;margin-top:.15rem}
+.panel-info{font-size:.75rem;color:var(--mid);display:flex;flex-direction:column;gap:.4rem}
+.panel-info-row{display:flex;align-items:center;gap:.5rem}
+.pi-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
+
+/* ── SECTION BASE ── */
+.wrap{max-width:1160px;margin:0 auto;padding:0 3.5rem}
+section{padding:6rem 0;border-top:1px solid var(--rule)}
+.sec-label{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-family:var(--mono);font-size:.68rem;color:var(--teal);
+  text-transform:uppercase;letter-spacing:.14em;margin-bottom:.9rem;
+}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--teal)}
+h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:600;color:var(--navy);line-height:1.1;margin-bottom:.5rem}
+.sec-sub{font-size:.9rem;color:var(--muted);max-width:60ch;margin-bottom:3.5rem;line-height:1.6}
+.two-col{display:grid;grid-template-columns:3fr 2fr;gap:5rem;align-items:start}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.two-equal{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+
+/* ── ABOUT ── */
+.about-body p{font-size:.92rem;color:#2D3E50;margin-bottom:1.1rem;line-height:1.8}
+.about-body p:last-child{margin-bottom:0}
+.about-body em{font-style:italic;color:var(--ink)}
+.about-sidebar{}
+.info-card{background:var(--surface);border:1px solid var(--rule);overflow:hidden;margin-bottom:1.2rem}
+.info-card-head{
+  padding:.6rem 1.1rem;background:var(--navy);
+  font-family:var(--mono);font-size:.62rem;text-transform:uppercase;
+  letter-spacing:.12em;color:rgba(255,255,255,.65);
+}
+.info-card-body{padding:1rem 1.1rem}
+.info-row{display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--ink);padding:.28rem 0;border-bottom:1px solid var(--rule)}
+.info-row:last-child{border-bottom:none}
+.info-row span{color:var(--teal);flex-shrink:0;font-size:.7rem;margin-top:.3rem}
+
+/* ── RESEARCH INTERESTS — dark band ── */
+.dark-band{background:var(--navy);padding:6rem 0;border-top:none}
+.dark-band h2{color:#fff}
+.dark-band .sec-label{color:rgba(14,124,118,.9)}
+.dark-band .sec-label::before{background:rgba(14,124,118,.9)}
+.dark-band .sec-sub{color:rgba(255,255,255,.5)}
+.ri-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:rgba(255,255,255,.08);margin-top:3.5rem}
+.ri-card{
+  background:var(--navy);padding:2rem 1.8rem;
+  border:1px solid rgba(255,255,255,.07);
+  position:relative;overflow:hidden;
+  transition:background .3s;cursor:default;
+}
+.ri-card:hover{background:rgba(14,124,118,.1)}
+.ri-card-accent{
+  position:absolute;bottom:0;left:0;width:3px;height:0;
+  background:var(--teal);transition:height .35s ease;
+}
+.ri-card:hover .ri-card-accent{height:100%}
+.ri-num{font-family:var(--serif);font-size:3rem;font-weight:700;color:rgba(255,255,255,.05);line-height:1;margin-bottom:.4rem}
+.ri-icon{font-size:1.3rem;margin-bottom:.75rem;display:block}
+.ri-card h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:.6rem;line-height:1.3}
+.ri-card p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65}
+
+/* ── EDUCATION ── */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:.5rem;bottom:0;width:1px;background:var(--rule)}
+.tl-item{position:relative;padding-bottom:3rem;padding-left:1.8rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-node{
+  position:absolute;left:-2rem;top:.4rem;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--navy);
+  box-shadow:0 0 0 4px var(--bg);
+  transition:background .2s;
+}
+.tl-item:hover .tl-node{background:var(--teal);border-color:var(--teal)}
+.tl-date{font-family:var(--mono);font-size:.68rem;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem}
+.tl-degree{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:.15rem;line-height:1.2}
+.tl-inst{font-size:.85rem;font-weight:500;color:var(--teal);margin-bottom:.75rem}
+.tl-body{font-size:.86rem;color:#2D3E50;line-height:1.7;margin-bottom:.9rem}
+.tl-body em{font-style:italic}
+.pill-row{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{font-family:var(--mono);font-size:.67rem;padding:.22rem .65rem;background:var(--cream);border:1px solid var(--rule);color:var(--mid);letter-spacing:.03em;border-radius:2px}
+.pill-hl{background:var(--teal-lt);border-color:rgba(14,124,118,.35);color:var(--teal)}
+.pill-gd{background:var(--gold-lt);border-color:rgba(160,113,42,.35);color:var(--gold)}
+
+/* ── EXPERIENCE ── */
+.exp-card{background:var(--surface);border:1px solid var(--rule);overflow:hidden;margin-bottom:1.5rem;transition:box-shadow .25s,transform .25s}
+.exp-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.exp-top{
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:start;gap:1.2rem;
+  padding:1.5rem 1.8rem;border-bottom:1px solid var(--rule);
+  background:var(--bg);
+}
+.exp-idx{font-family:var(--mono);font-size:.65rem;color:var(--muted);padding-top:.2rem;min-width:1.8rem}
+.exp-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.18rem}
+.exp-org{font-size:.82rem;font-weight:500;color:var(--teal)}
+.exp-date{font-family:var(--mono);font-size:.67rem;color:var(--muted);white-space:nowrap;text-align:right}
+.exp-body{padding:1.5rem 1.8rem}
+.exp-body p{font-size:.86rem;color:#2D3E50;margin-bottom:.9rem;line-height:1.7}
+.exp-body p:last-of-type{margin-bottom:.9rem}
+.tech-row{display:flex;flex-wrap:wrap;gap:.35rem}
+.tech{font-family:var(--mono);font-size:.65rem;padding:.18rem .55rem;background:rgba(13,33,55,.05);border:1px solid rgba(13,33,55,.12);color:var(--navy2);letter-spacing:.03em;border-radius:2px}
+
+/* ── PUBLICATIONS — cream band ── */
+.cream-band{background:var(--cream);padding:6rem 0;border-top:1px solid var(--rule)}
+.pub-card{
+  background:var(--surface);border:1px solid var(--rule);
+  padding:1.8rem 2rem 1.8rem 4.2rem;
+  position:relative;margin-bottom:1.2rem;
+  transition:box-shadow .25s,border-color .25s;
+}
+.pub-card:hover{box-shadow:var(--shadow);border-color:var(--teal)}
+.pub-n{
+  position:absolute;left:1.6rem;top:1.8rem;
+  font-family:var(--serif);font-size:2rem;font-weight:700;
+  color:var(--rule);line-height:1;
+}
+.pub-badge{
+  display:inline-block;font-family:var(--mono);font-size:.62rem;
+  text-transform:uppercase;letter-spacing:.1em;
+  padding:.17rem .55rem;background:var(--teal-lt);
+  border:1px solid var(--teal);color:var(--teal);
+  border-radius:2px;margin-bottom:.7rem;
+}
+.pub-title{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--navy);margin-bottom:.4rem;line-height:1.4}
+.pub-authors{font-size:.82rem;color:var(--muted);margin-bottom:.28rem}
+.pub-authors strong{color:var(--ink);font-weight:500}
+.pub-journal{font-size:.82rem;color:var(--teal);font-style:italic;margin-bottom:.55rem}
+.pub-doi{
+  font-family:var(--mono);font-size:.67rem;color:var(--muted);
+  text-decoration:none;border-bottom:1px solid var(--rule);
+  transition:color .2s,border-color .2s;
+}
+.pub-doi:hover{color:var(--teal);border-color:var(--teal)}
+
+/* ── SKILLS ── */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1.2rem}
+.skill-card{background:var(--surface);border:1px solid var(--rule);overflow:hidden;transition:box-shadow .2s}
+.skill-card:hover{box-shadow:var(--shadow)}
+.skill-head{padding:.75rem 1.2rem;background:var(--navy);display:flex;align-items:center;gap:.6rem}
+.skill-head .sk-ico{font-size:.95rem}
+.skill-head span{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.65)}
+.skill-list{padding:.8rem 1.2rem}
+.sk-item{font-size:.82rem;color:#2D3E50;padding:.3rem 0;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:.55rem}
+.sk-item:last-child{border-bottom:none}
+.sk-item::before{content:'›';color:var(--teal);font-weight:700;font-size:.85rem;flex-shrink:0}
+
+/* ── CONFERENCES ── */
+.conf-item{
+  display:grid;grid-template-columns:3.2rem 1fr;gap:1.4rem;
+  padding:1.1rem 1.3rem;border:1px solid var(--rule);
+  background:var(--surface);margin-bottom:.8rem;
+  transition:border-color .2s;
+}
+.conf-item:hover{border-color:var(--navy)}
+.conf-yr{font-family:var(--mono);font-size:.72rem;color:var(--muted);padding-top:.1rem}
+.conf-name{font-weight:500;font-size:.88rem;color:var(--navy);margin-bottom:.18rem;line-height:1.35}
+.conf-loc{font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:.35rem}
+.badge{
+  display:inline-block;font-family:var(--mono);font-size:.6rem;
+  text-transform:uppercase;letter-spacing:.08em;
+  padding:.13rem .45rem;border:1px solid;border-radius:2px;
+}
+.badge-i{border-color:var(--navy2);color:var(--navy2);background:rgba(22,51,82,.05)}
+.badge-n{border-color:var(--gold);color:var(--gold);background:var(--gold-lt)}
+.badge-o{border-color:var(--teal);color:var(--teal);background:var(--teal-lt)}
+
+/* ── CERTIFICATIONS — dark band ── */
+.cert-band{background:#0A1927;padding:6rem 0;border-top:none}
+.cert-band h2{color:#fff}
+.cert-band .sec-label{color:rgba(14,124,118,.9)}
+.cert-band .sec-label::before{background:rgba(14,124,118,.9)}
+.cert-band .sec-sub{color:rgba(255,255,255,.45)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;margin-top:3rem}
+.cert-card{
+  border:1px solid rgba(255,255,255,.09);padding:1.7rem;
+  position:relative;overflow:hidden;
+  transition:border-color .25s,background .25s;cursor:default;
+}
+.cert-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(14,124,118,.07) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.cert-card:hover::before{opacity:1}
+.cert-card:hover{border-color:rgba(14,124,118,.4)}
+.cert-logo{
+  width:36px;height:36px;border-radius:4px;
+  background:rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:.65rem;font-weight:500;
+  color:rgba(255,255,255,.5);margin-bottom:1rem;
+}
+.cert-inst{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:.5rem}
+.cert-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem;line-height:1.35}
+.cert-date{font-family:var(--mono);font-size:.65rem;color:rgba(255,255,255,.35)}
+
+/* ── CONTACT ── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-lede h3{font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--navy);margin-bottom:.9rem;line-height:1.25}
+.contact-lede p{font-size:.88rem;color:var(--mid);line-height:1.75;margin-bottom:1.6rem}
+.clink{
+  display:flex;align-items:center;gap:1rem;text-decoration:none;
+  padding:.85rem 1.2rem;border:1px solid var(--rule);
+  background:var(--surface);color:var(--ink);font-size:.85rem;
+  margin-bottom:.7rem;transition:border-color .2s,background .2s;
+}
+.clink:hover{border-color:var(--navy);background:var(--cream)}
+.clink-ico{
+  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  background:var(--navy);color:#fff;font-size:.7rem;font-family:var(--mono);
+  flex-shrink:0;border-radius:2px;
+}
+.form-stack{display:flex;flex-direction:column;gap:.9rem}
+.fld{display:flex;flex-direction:column;gap:.35rem}
+label{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+input,textarea{
+  font-family:var(--sans);font-size:.87rem;padding:.75rem .95rem;
+  border:1px solid var(--rule);background:var(--surface);color:var(--ink);
+  outline:none;transition:border-color .2s;resize:vertical;border-radius:2px;
+}
+input:focus,textarea:focus{border-color:var(--navy)}
+textarea{min-height:110px}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--rule);padding:2rem 3.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--bg);
+}
+.foot-brand{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--navy)}
+.foot-meta{font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.06em}
+
+/* ── REVEAL ANIMATIONS ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
+.rv2{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.rv2.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:.85rem 1.5rem}
+  .nav-links{display:none}
+  #hero{padding:8rem 1.5rem 4rem}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-panel{display:none}
+  .wrap{padding:0 1.5rem}
+  section,.dark-band,.cream-band,.cert-band{padding:4.5rem 0}
+  .wrap{padding:0 1.5rem}
+  .two-col,.contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .three-col{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:.5rem;text-align:center;padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ─── NAV ─────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="#hero" class="nav-brand">
+    <div class="nav-monogram">AR</div>
+    <span class="nav-name">Azka Razzaq</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#interests">Research</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section id="hero" style="border:none;padding:0">
+  <div class="hero-canvas"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-status rv">
+        <div class="status-dot"></div>
+        <span>Seeking Funded PhD · Cancer Nanomedicine</span>
+      </div>
+      <h1 class="rv">
+        Azka <span class="italic">Razzaq</span><br>
+        <span class="light">Researcher in</span><br>
+        <span class="italic">Cancer Nanomedicine</span>
+      </h1>
+      <p class="hero-sub rv">
+        MPhil Biochemistry candidate at <strong>GCUF, Pakistan</strong>, developing 
+        plant-mediated green-synthesized nanoparticle therapeutics for preclinical 
+        oncology. Published researcher with expertise spanning <strong>in vivo</strong> tumor 
+        models, bioinformatics-driven drug discovery, and microbial nanofactories.
+      </p>
+      <div class="hero-chips rv">
+        <span class="chip chip-t">🔬 Nanotechnology</span>
+        <span class="chip chip-t">⬡ Cancer Biology</span>
+        <span class="chip chip-n">In Vivo Models</span>
+        <span class="chip chip-n">Drug Discovery</span>
+        <span class="chip chip-g">Green Synthesis</span>
+        <span class="chip chip-n">Bioinformatics</span>
+      </div>
+      <div class="hero-actions rv">
+        <a href="#publications" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          View Publications
+        </a>
+        <a href="mailto:azkarazza88@gmail.com" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Get in Touch
+        </a>
+      </div>
+    </div>
+    <div class="hero-panel rv">
+      <div class="panel-avatar">AR</div>
+      <div class="panel-name">Azka Razzaq</div>
+      <div class="panel-title">MPhil Biochemistry · GCUF</div>
+      <div class="panel-divider"></div>
+      <div class="panel-stat-row">
+        <div class="panel-stat"><span class="panel-stat-num">2</span><span class="panel-stat-lbl">Publications</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">3.57</span><span class="panel-stat-lbl">CGPA / 4.0</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">5+</span><span class="panel-stat-lbl">Conferences</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">3</span><span class="panel-stat-lbl">Certifications</span></div>
+      </div>
+      <div class="panel-info">
+        <div class="panel-info-row"><div class="pi-dot"></div><span>Faisalabad, Punjab, Pakistan</span></div>
+        <div class="panel-info-row"><div class="pi-dot"></div><span>azkarazza88@gmail.com</span></div>
+        <div class="panel-info-row"><div class="pi-dot"></div><span>Open to PhD Applications</span></div>
+        <div class="panel-info-row"><div class="pi-dot"></div><span>Available for Research Collaboration</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─────────────────────────────────────────── -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-label rv">About Me</div>
+    <div class="two-col">
+      <div class="about-body rv">
+        <h2 style="margin-bottom:1.8rem">From Green Chemistry<br><em style="font-style:italic;color:var(--teal)">to Targeted Oncology</em></h2>
+        <p>I am a biochemistry researcher and MPhil candidate at Government College University Faisalabad (GCUF), Pakistan, where I have maintained a CGPA of 3.57/4.0. My research is situated at the convergence of nanomedicine, green chemistry, and cancer biology — disciplines I believe hold transformative potential for next-generation precision oncology.</p>
+        <p>My thesis investigates the <em>in vivo</em> anticancer efficacy of plant-mediated green-synthesized metal nanoparticles (MNPs) in murine tumor models, encompassing the full translational pipeline: from phytochemical synthesis and physicochemical characterization (SEM, XRD, EDX, Zetasizer) through to tumor suppression quantification, hematological profiling, and histopathological analysis of apoptotic markers.</p>
+        <p>Alongside my thesis, I have contributed to published research on <em>Bacillus subtilis</em>-mediated microbial nanofactories for silver nanoparticle biosynthesis, and on bioinformatics-driven molecular docking for estrogen receptor-positive breast cancer targets. These projects reflect my commitment to interdisciplinary, translational research.</p>
+        <p>I am actively seeking a <strong>fully funded PhD position</strong> in cancer nanomedicine, translational oncology, or biomedical nanotechnology at an internationally leading research institution, where I can develop targeted, plant-derived therapeutic platforms and contribute meaningfully to global cancer research.</p>
+      </div>
+      <div class="about-sidebar rv">
+        <div class="info-card">
+          <div class="info-card-head">Academic Identity</div>
+          <div class="info-card-body">
+            <div class="info-row"><span>◎</span>MPhil Biochemistry — GCUF</div>
+            <div class="info-row"><span>◎</span>BSc Biochemistry (Hons) — GCUF</div>
+            <div class="info-row"><span>◎</span>CGPA 3.57 / 4.0</div>
+            <div class="info-row"><span>◎</span>2 peer-reviewed publications</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-head">Research Focus</div>
+          <div class="info-card-body">
+            <div class="info-row"><span>▸</span>Cancer Nanomedicine</div>
+            <div class="info-row"><span>▸</span>Green Nanoparticle Synthesis</div>
+            <div class="info-row"><span>▸</span>In Vivo Anticancer Evaluation</div>
+            <div class="info-row"><span>▸</span>Bioinformatics & Drug Discovery</div>
+            <div class="info-row"><span>▸</span>Microbial Nanofactories</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-head">Languages & Location</div>
+          <div class="info-card-body">
+            <div class="info-row"><span>●</span>Urdu — Native</div>
+            <div class="info-row"><span>●</span>English — Professional Proficiency</div>
+            <div class="info-row"><span>📍</span>Faisalabad, Punjab, Pakistan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESEARCH INTERESTS ─────────────────────────── -->
+<div class="dark-band" id="interests">
+  <div class="wrap">
+    <div class="sec-label rv">02 — Research Interests</div>
+    <h2 class="rv">Areas of<br><em style="font-style:italic;color:rgba(14,124,118,.9)">Scientific Inquiry</em></h2>
+    <p class="sec-sub rv">Six interlocking research domains that define my scientific identity and future research agenda.</p>
+    <div class="ri-grid">
+      <div class="ri-card rv2"><div class="ri-card-accent"></div><div class="ri-num">01</div><span class="ri-icon">⬡</span><h3>Green Nanoparticle Synthesis</h3><p>Engineering AgNPs and metal oxide nanoparticles via plant extract reduction; optimizing physicochemical parameters for therapeutic yield, morphological control, and colloidal stability.</p></div>
+      <div class="ri-card rv2"><div class="ri-card-accent"></div><div class="ri-num">02</div><span class="ri-icon">◎</span><h3>Cancer Nanomedicine</h3><p>Developing phytonanomedicine frameworks for targeted tumor suppression with reduced systemic toxicity compared to conventional chemotherapeutics.</p></div>
+      <div class="ri-card rv2"><div class="ri-card-accent"></div><div class="ri-num">03</div><span class="ri-icon">⊕</span><h3>Microbial Nanofactories</h3><p>Exploiting <em style="font-style:italic;color:rgba(255,255,255,.65)">Bacillus subtilis</em> and related microorganisms as sustainable, scalable biosynthetic platforms for biomedically active nanoparticles.</p></div>
+      <div class="ri-card rv2"><div class="ri-card-accent"></div><div class="ri-num">04</div><span class="ri-icon">≋</span><h3>Bioinformatics & Drug Discovery</h3><p>Applying molecular docking and virtual screening pipelines to identify lead compounds targeting estrogen receptor-positive breast cancer and other malignancies.</p></div>
+      <div class="ri-card rv2"><div class="ri-card-accent"></div><div class="ri-num">05</div><span class="ri-icon">◈</span><h3>In Vivo Oncology Models</h3><p>Designing and executing murine tumor models for preclinical efficacy and safety evaluation of nanoparticle-based therapeutic candidates, with multi-parameter outcome assessment.</p></div>
+      <div class="ri-card rv2"><div class="ri-card-accent"></div><div class="ri-num">06</div><span class="ri-icon">◉</span><h3>Cancer Biomarker Discovery</h3><p>ELISA- and HPLC-based quantification of oncological biomarkers and pro-inflammatory cytokines to characterize therapeutic response and immunological modulation.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── EDUCATION ─────────────────────────────────────── -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-label rv">03 — Education</div>
+    <h2 class="rv">Academic<br><em style="font-style:italic;color:var(--teal)">Formation</em></h2>
+    <p class="sec-sub rv">Rigorous scientific training at Government College University Faisalabad, complemented by industry internships and hands-on research experience.</p>
+    <div class="timeline rv">
+      <div class="tl-item">
+        <div class="tl-node"></div>
+        <div class="tl-date">Sep 2023 – Dec 2025</div>
+        <div class="tl-degree">MPhil in Biochemistry</div>
+        <div class="tl-inst">Government College University Faisalabad (GCUF) · Pakistan</div>
+        <div class="tl-body">Thesis: <em>In Vivo Anticancer Evaluation of Plant-Based Green-Synthesized Metal Nanoparticles in a Mouse Model.</em> Research spans phytochemical nanoparticle synthesis, multi-modal physicochemical characterization, in vivo tumor suppression studies, and histopathological evaluation of apoptotic markers in tumor tissue. Coursework included Gene Expression & Manipulation, Advanced Cell Biology, Clinical Biochemistry, and Scientific Writing.</div>
+        <div class="pill-row"><span class="pill pill-hl">CGPA 3.57 / 4.0</span><span class="pill">Gene Expression & Manipulation</span><span class="pill">Advanced Cell Biology</span><span class="pill">Clinical Biochemistry</span><span class="pill">Scientific Writing</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node"></div>
+        <div class="tl-date">Oct 2019 – Aug 2023</div>
+        <div class="tl-degree">Bachelor of Science in Biochemistry (Hons)</div>
+        <div class="tl-inst">Government College University Faisalabad (GCUF) · Pakistan</div>
+        <div class="tl-body">Comprehensive undergraduate training in molecular biology, genomics, proteomics, immunochemistry, biophysics, and biotechnology. Final-year research project conducted at PCSIR Lahore: nutritional profiling and adulterant detection in dairy products, with evaluation of whey fermentate for probiotic production.</div>
+        <div class="pill-row"><span class="pill">Molecular Biology</span><span class="pill">Genomics & Proteomics</span><span class="pill">Immunochemistry</span><span class="pill">Biotechnology</span><span class="pill">Biostatistics</span><span class="pill pill-gd">PCSIR Internship</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESEARCH EXPERIENCE ───────────────────────────── -->
+<section id="experience" style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-label rv">04 — Research Experience</div>
+    <h2 class="rv">Laboratory &<br><em style="font-style:italic;color:var(--teal)">Research Record</em></h2>
+    <p class="sec-sub rv">Three formative research and clinical experiences underpinning my experimental and analytical competencies.</p>
+
+    <div class="exp-card rv">
+      <div class="exp-top">
+        <span class="exp-idx">01</span>
+        <div><div class="exp-title">Graduate Research Associate — Cancer Nanomedicine Laboratory</div><div class="exp-org">Department of Biochemistry, GCUF, Faisalabad</div></div>
+        <span class="exp-date">2024 – Present</span>
+      </div>
+      <div class="exp-body">
+        <p>Principal investigator for MPhil thesis research examining the preclinical anticancer potential of phytogenic metal nanoparticles. Independently designed and executed the complete experimental pipeline: green synthesis via plant-extract reduction, multi-modal physicochemical characterization, murine tumor model establishment, therapeutic dosing protocols, and multi-parameter outcome evaluation including hematological and histopathological analyses.</p>
+        <p>Notable contributions include systematic optimization of synthesis parameters (pH, temperature, plant-to-metal concentration ratios) for reproducible nanoparticle yield; development of ELISA-based cytokine profiling workflows for tumor microenvironment characterization; and integration of XRD and SEM data to correlate structural properties with anticancer bioactivity.</p>
+        <div class="tech-row"><span class="tech">SEM</span><span class="tech">XRD</span><span class="tech">EDX</span><span class="tech">DLS / Zetasizer</span><span class="tech">ELISA</span><span class="tech">HPLC</span><span class="tech">H&E Histology</span><span class="tech">Murine Models</span><span class="tech">CBC Analysis</span><span class="tech">Green Synthesis</span></div>
+      </div>
+    </div>
+
+    <div class="exp-card rv">
+      <div class="exp-top">
+        <span class="exp-idx">02</span>
+        <div><div class="exp-title">Undergraduate Research Intern — Food & Biotechnology Research</div><div class="exp-org">Pakistan Council of Scientific & Industrial Research (PCSIR), Lahore</div></div>
+        <span class="exp-date">Jul – Aug 2022</span>
+      </div>
+      <div class="exp-body">
+        <p>Conducted quantitative analytical investigations within a nationally accredited research institution. Performed nutritional profiling, fat-content analysis, and adulterant detection in dairy product samples using accredited methodologies. Evaluated whey fermentate preparations for industrial probiotic production feasibility, gaining hands-on proficiency in a broad range of analytical instrumentation within a quality-assured laboratory environment.</p>
+        <div class="tech-row"><span class="tech">HPLC</span><span class="tech">UV-Vis Spectrophotometry</span><span class="tech">Soxhlet Extraction</span><span class="tech">Kjeldahl Analysis</span><span class="tech">Gerber Method</span><span class="tech">Lactometry</span><span class="tech">Microbial Analysis</span></div>
+      </div>
+    </div>
+
+    <div class="exp-card rv">
+      <div class="exp-top">
+        <span class="exp-idx">03</span>
+        <div><div class="exp-title">Clinical Laboratory Intern — Pathology & Diagnostics</div><div class="exp-org">Faisal Institute of Health Sciences, Faisal Hospital, Faisalabad</div></div>
+        <span class="exp-date">Aug – Oct 2021</span>
+      </div>
+      <div class="exp-body">
+        <p>Completed a supervised two-month rotation across biochemistry, hematology, and immunology departments within a clinical diagnostic laboratory. Gained working exposure to patient sample workflows, quality assurance procedures, and the interpretation of diagnostic test results, providing an important bridge between bench-science competencies and clinical application.</p>
+        <div class="tech-row"><span class="tech">ELISA</span><span class="tech">PCR</span><span class="tech">Blood Smear Analysis</span><span class="tech">Immunoassays</span><span class="tech">Electrophoresis</span><span class="tech">Venipuncture</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PUBLICATIONS ──────────────────────────────────── -->
+<div class="cream-band" id="publications">
+  <div class="wrap">
+    <div class="sec-label rv">05 — Publications</div>
+    <h2 class="rv">Peer-Reviewed<br><em style="font-style:italic;color:var(--teal)">Research Output</em></h2>
+    <p class="sec-sub rv">Two published contributions spanning microbial nanofactories and bioinformatics-driven breast cancer drug discovery.</p>
+
+    <div class="pub-card rv">
+      <div class="pub-n">01</div>
+      <div class="pub-badge">Published · 2025 · Primary Author</div>
+      <div class="pub-title">Microbial Nanofactories in Cancer Nanomedicine: Harnessing <em>Bacillus subtilis</em> for Green Synthesis of Silver Nanoparticles in Cancer Therapy</div>
+      <div class="pub-authors"><strong>Razzaq, A.*</strong>, Anwar, N., Waqas, M., Saqlain, M., Nadeem, F., & Shahzadi, S.</div>
+      <div class="pub-journal">Link Medical Journal · e50–e50 (2025)</div>
+      <a href="https://doi.org/10.61919/fzbarj29" class="pub-doi" target="_blank">doi: 10.61919/fzbarj29 ↗</a>
+    </div>
+
+    <div class="pub-card rv">
+      <div class="pub-n">02</div>
+      <div class="pub-badge">Published · 2024 · Co-Author</div>
+      <div class="pub-title">Integrating Bioinformatics Tools: Molecular Screening for Drug Discovery Against Estrogen-Positive Breast Cancer</div>
+      <div class="pub-authors">Rasool, E., Anwaar, R., Naeem, A., <strong>Razzaq, A.</strong>, Shoukat, S., Hameed, B., Abbas, M. A., & Shabbir, A.</div>
+      <div class="pub-journal">Journal of Population Therapeutics and Clinical Pharmacology · 31(11), 270–277 (2024)</div>
+      <a href="https://doi.org/10.53555/credtj09" class="pub-doi" target="_blank">doi: 10.53555/credtj09 ↗</a>
+    </div>
+
+    <p style="font-size:.73rem;color:var(--muted);font-family:var(--mono);margin-top:.8rem">* Primary / corresponding author</p>
+  </div>
+</div>
+
+<!-- ─── SKILLS ────────────────────────────────────────── -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label rv">06 — Technical Expertise</div>
+    <h2 class="rv">Laboratory &<br><em style="font-style:italic;color:var(--teal)">Computational Skills</em></h2>
+    <p class="sec-sub rv">A comprehensive bench-to-computational skill set developed across academic research, industrial internships, and clinical diagnostics.</p>
+    <div class="skill-grid">
+      <div class="skill-card rv2"><div class="skill-head"><span class="sk-ico">⬡</span><span>Nanotechnology & Characterization</span></div><div class="skill-list"><div class="sk-item">Green nanoparticle synthesis (AgNPs, MNPs)</div><div class="sk-item">Scanning Electron Microscopy (SEM)</div><div class="sk-item">X-ray Diffraction (XRD)</div><div class="sk-item">Energy Dispersive X-ray (EDX)</div><div class="sk-item">Dynamic Light Scattering / Zetasizer</div></div></div>
+      <div class="skill-card rv2"><div class="skill-head"><span class="sk-ico">◎</span><span>Molecular & Cell Biology</span></div><div class="skill-list"><div class="sk-item">PCR (conventional & diagnostic)</div><div class="sk-item">ELISA (sandwich & competitive)</div><div class="sk-item">SDS-PAGE & protein electrophoresis</div><div class="sk-item">Peripheral blood smear analysis</div><div class="sk-item">Immunoassay platforms</div></div></div>
+      <div class="skill-card rv2"><div class="skill-head"><span class="sk-ico">≋</span><span>Analytical Biochemistry</span></div><div class="skill-list"><div class="sk-item">HPLC — biomarker quantification</div><div class="sk-item">UV-Visible Spectrophotometry</div><div class="sk-item">Soxhlet & Kjeldahl extraction</div><div class="sk-item">Gerber fat analysis</div><div class="sk-item">Lactometry</div></div></div>
+      <div class="skill-card rv2"><div class="skill-head"><span class="sk-ico">◈</span><span>In Vivo & Histopathology</span></div><div class="skill-list"><div class="sk-item">Murine tumor model establishment</div><div class="sk-item">Animal dosing & ethical care protocols</div><div class="sk-item">H&E histological staining</div><div class="sk-item">CBC & differential cell counting</div><div class="sk-item">Tissue sectioning & photomicroscopy</div></div></div>
+      <div class="skill-card rv2"><div class="skill-head"><span class="sk-ico">⊕</span><span>Bioinformatics & Data Analysis</span></div><div class="skill-list"><div class="sk-item">Molecular docking & virtual screening</div><div class="sk-item">SPSS (biostatistical analysis)</div><div class="sk-item">GraphPad Prism</div><div class="sk-item">Origin (spectral data analysis)</div><div class="sk-item">EndNote (reference management)</div></div></div>
+      <div class="skill-card rv2"><div class="skill-head"><span class="sk-ico">◉</span><span>Scientific Communication</span></div><div class="skill-list"><div class="sk-item">Peer-reviewed manuscript writing</div><div class="sk-item">Academic citation & referencing</div><div class="sk-item">Research poster design</div><div class="sk-item">Conference presentation</div><div class="sk-item">Microsoft Office Suite</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONFERENCES ───────────────────────────────────── -->
+<section id="conferences" style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-label rv">07 — Conferences & Events</div>
+    <h2 class="rv">Scientific<br><em style="font-style:italic;color:var(--teal)">Engagement</em></h2>
+    <p class="sec-sub rv">Active participation in international and national academic forums, spanning microbiology, applied sciences, and genetic research.</p>
+    <div class="rv">
+      <div class="conf-item"><span class="conf-yr">2024</span><div><div class="conf-name">1st International Microbiology Conference (IMC-2024)</div><div class="conf-loc">Department of Microbiology, GCUF, Faisalabad · Nov 13–15, 2024</div><span class="badge badge-i">International</span></div></div>
+      <div class="conf-item"><span class="conf-yr">2024</span><div><div class="conf-name">1st International Conference on Applied Sciences & Technology (ICAST-2024)</div><div class="conf-loc">ORIC, Baba Guru Nanak University, Punjab, Pakistan · Oct 24–25, 2024</div><span class="badge badge-i">International</span></div></div>
+      <div class="conf-item"><span class="conf-yr">2024</span><div><div class="conf-name">Entrepreneurship Workshop: "Economic Impacts & Sustainable Beekeeping"</div><div class="conf-loc">University of Education, Lahore, Vehari Campus · Nov 21, 2024</div><span class="badge badge-n">Workshop</span></div></div>
+      <div class="conf-item"><span class="conf-yr">2023</span><div><div class="conf-name">National Workshop: "Microbial Bioactives to Mitigate Plant Stress"</div><div class="conf-loc">Department of Biochemistry, GCUF, Faisalabad · 2023</div><span class="badge badge-n">National</span></div></div>
+      <div class="conf-item"><span class="conf-yr">2022</span><div><div class="conf-name">International Symposium: "What We Need to Know About Human Genetic Disorders?"</div><div class="conf-loc">Government College University Faisalabad · Mar 21, 2022</div><span class="badge badge-i">International</span></div></div>
+      <div class="conf-item"><span class="conf-yr">2021</span><div><div class="conf-name">World Diabetes Day 2021 Awareness Campaign</div><div class="conf-loc">Department of Biochemistry & Pharmacy, GCUF · November 2021</div><span class="badge badge-o">Student Organizer</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CERTIFICATIONS ────────────────────────────────── -->
+<div class="cert-band" id="certifications">
+  <div class="wrap">
+    <div class="sec-label rv">08 — Certifications</div>
+    <h2 class="rv">Continuing<br><em style="font-style:italic;color:rgba(14,124,118,.9)">Education</em></h2>
+    <p class="sec-sub rv">International online certifications from world-leading universities, demonstrating commitment to broadening oncological knowledge beyond the bench.</p>
+    <div class="cert-grid">
+      <div class="cert-card rv2">
+        <div class="cert-logo">JHU</div>
+        <div class="cert-inst">Johns Hopkins University</div>
+        <div class="cert-title">Understanding Cancer Metastasis</div>
+        <div class="cert-date">February 2024</div>
+      </div>
+      <div class="cert-card rv2">
+        <div class="cert-logo">UCSD</div>
+        <div class="cert-inst">University of California, San Diego</div>
+        <div class="cert-title">Drug Development</div>
+        <div class="cert-date">January 2024</div>
+      </div>
+      <div class="cert-card rv2">
+        <div class="cert-logo">ICL</div>
+        <div class="cert-inst">Imperial College London</div>
+        <div class="cert-title">Immunology: Immune Failures and Cancer Immunology</div>
+        <div class="cert-date">January 2024</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONTACT ───────────────────────────────────────── -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-label rv">09 — Contact</div>
+    <h2 class="rv">Open to PhD<br><em style="font-style:italic;color:var(--teal)">Opportunities</em></h2>
+    <p class="sec-sub rv">Actively seeking fully funded PhD positions and research collaborations in cancer nanomedicine, translational oncology, and biomedical nanotechnology.</p>
+    <div class="contact-wrap">
+      <div class="contact-lede rv">
+        <h3>Let's Build the<br>Future of Cancer Research</h3>
+        <p>If you are a prospective supervisor, scholarship committee member, or fellow researcher interested in my work on green-synthesized nanoparticle therapeutics and <em>in vivo</em> oncology, I warmly welcome the opportunity to connect. I am equally open to co-authorship proposals, academic exchange programmes, and collaborative research initiatives.</p>
+        <a href="mailto:azkarazza88@gmail.com" class="clink"><div class="clink-ico">@</div><span>azkarazza88@gmail.com</span></a>
+        <a href="https://www.gcuf.edu.pk" class="clink" target="_blank"><div class="clink-ico">🎓</div><span>Government College University Faisalabad</span></a>
+        <a href="#" class="clink"><div class="clink-ico">in</div><span>LinkedIn — Add your profile URL</span></a>
+        <a href="#" class="clink"><div class="clink-ico">RG</div><span>ResearchGate — Add your profile URL</span></a>
+      </div>
+      <div class="form-stack rv">
+        <div class="fld"><label>Your Name</label><input type="text" placeholder="Professor / Dr. / Your name"></div>
+        <div class="fld"><label>Institution</label><input type="text" placeholder="University or organisation"></div>
+        <div class="fld"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="fld"><label>Subject</label><input type="text" placeholder="PhD Opportunity / Collaboration / Enquiry"></div>
+        <div class="fld"><label>Message</label><textarea placeholder="Share details about the opportunity or collaboration…"></textarea></div>
+        <a href="mailto:azkarazza88@gmail.com" class="btn btn-primary" style="justify-content:center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Send Message
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────── -->
+<footer>
+  <div class="foot-brand">Azka Razzaq · MPhil Biochemistry · GCUF</div>
+  <div class="foot-meta">Faisalabad, Pakistan · azkarazza88@gmail.com · 2025</div>
+</footer>
+
+<script>
+// Progress bar
+const bar = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const p = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  bar.style.width = p + '%';
+});
+
+// Nav scroll state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.rv,.rv2').forEach((el, i) => {
+  // Stagger grid children
+  const parent = el.closest('.ri-grid,.skill-grid,.cert-grid,.panel-stat-row');
+  if (parent) {
+    const siblings = parent.querySelectorAll('.rv,.rv2');
+    siblings.forEach((s, j) => { s.style.transitionDelay = j * 75 + 'ms'; });
+  }
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
